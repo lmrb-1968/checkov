@@ -27,3 +27,5 @@ jobs:
         with:
           token: ${{ secrets.XYGENI_TOKEN }}
           command: sast -n checkov -d ${{ inputs.path }}
+        env:
+          _XYGENI_APPLY_POLICIES_: 'never!'

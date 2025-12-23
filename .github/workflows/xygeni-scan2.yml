@@ -14,9 +14,6 @@ jobs:
       - name: Checkout
         # You may instead pin to an action SHA
         uses: actions/checkout@v6.0.1
-        with:
-          # The default depth of 1 commit is not enough for some scans
-          fetch-depth: 0
 
       - name: Xygeni-Scanner
         uses: xygeni/xygeni-action@v5.38.0

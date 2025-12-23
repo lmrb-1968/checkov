@@ -3,7 +3,7 @@ on:
     inputs:
       path:
         description: Directory to scan
-        default: ${{ github.workspace }}
+        default: '.'
 
 jobs:
   xygeni-scan:

@@ -26,4 +26,4 @@ jobs:
         id: Xygeni-Scanner
         with:
           token: ${{ secrets.XYGENI_TOKEN }}
-          command: sast -name checkov -d ${{ inputs.path }}
+          command: sast -n checkov -d ${{ inputs.path }}

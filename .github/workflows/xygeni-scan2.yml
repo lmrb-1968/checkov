@@ -15,6 +15,12 @@ jobs:
         # You may instead pin to an action SHA
         uses: actions/checkout@v6.0.1
 
+      - name: Show files
+        run: |
+          echo "Directory: ${{ inputs.path }}"
+          ls -la "${{ inputs.path }}"
+          find "${{ inputs.path }}" -name "*.py" 
+
       - name: Xygeni-Scanner
         uses: xygeni/xygeni-action@v5.38.0
         id: Xygeni-Scanner

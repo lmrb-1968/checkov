@@ -23,4 +23,4 @@ jobs:
         id: Xygeni-Scanner
         with:
           token: ${{ secrets.XYGENI_TOKEN }}
-          command: secrets -d ${{ inputs.path }}
+          command: secrets -d "${{ inputs.path }}"

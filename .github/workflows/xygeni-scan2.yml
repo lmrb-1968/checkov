@@ -1,0 +1,21 @@
+on: workflow_dispatch 
+
+jobs:
+  xygeni-scan:
+    runs-on: ubuntu-latest
+    name: xygeni-github-action
+    steps:
+      # Checkout the repository sources (GITHUB_WORKSPACE)
+      - name: Checkout
+        # You may instead pin to an action SHA
+        uses: actions/checkout@v6.0.1
+        with:
+          # The default depth of 1 commit is not enough for some scans
+          fetch-depth: 0
+
+      - name: Xygeni-Scanner
+        uses: xygeni/xygeni-action@v5.38.0
+        id: Xygeni-Scanner
+        with:
+          token: ${{ secrets.XYGENI_TOKEN }}
+          command: secrets

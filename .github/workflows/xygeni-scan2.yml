@@ -18,4 +18,4 @@ jobs:
         id: Xygeni-Scanner
         with:
           token: ${{ secrets.XYGENI_TOKEN }}
-          command: secrets -d /
+          command: secrets

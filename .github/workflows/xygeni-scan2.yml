@@ -1,9 +1,5 @@
 on: 
   workflow_dispatch:
-    inputs:
-      path:
-        description: Directory to scan
-        default: '.'
 
 jobs:
   xygeni-scan:
@@ -13,19 +9,13 @@ jobs:
       # Checkout the repository sources (GITHUB_WORKSPACE)
       - name: Checkout
         # You may instead pin to an action SHA
-        uses: actions/checkout@v6.0.1
-
-      - name: Show files
-        run: |
-          echo "Directory: ${{ inputs.path }}"
-          ls -la "${{ inputs.path }}"
-          find "${{ inputs.path }}" -name "*.py" 
+        uses: actions/checkout@v6
 
       - name: Xygeni-Scanner
-        uses: xygeni/xygeni-action@v5.38.0
+        uses: xygeni/xygeni-action@v5
         id: Xygeni-Scanner
         with:
           token: ${{ secrets.XYGENI_TOKEN }}
-          command: sast -n checkov -d ${{ inputs.path }}
+          command: scan -n checkov -d checkov --run sca,secrets,misconf,sast,iac
         env:
           _XYGENI_APPLY_POLICIES_: 'never!'
